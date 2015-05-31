@@ -18,7 +18,9 @@
     My Todo-s
 </h1>
 <div data-ng-controller="myToDosController as controller">
-    <input type="text" placeholder="seach by word" data-ng-model="controller.searchBy"/>
+    <input type="text"
+           placeholder="seach by word"
+           data-ng-model="controller.searchBy"/>
     <table>
         <thead>
         <th>Title</th>
@@ -27,8 +29,9 @@
         <th>Completed</th>
         </thead>
         <tbody>
+        <!--searchInTitle:controller.searchBy-->
         <tr
-                data-ng-repeat="todo in controller.myTodos | filter:controller.searchBy | searchInTitle:controller.searchBy">
+                data-ng-repeat="todo in controller.myTodos | searchInTitle:controller.searchBy | filter:controller.searchBy">
             <td data-ng-bind="todo.Title"></td>
             <td data-ng-bind="todo.Description"></td>
             <td

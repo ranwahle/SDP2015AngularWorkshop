@@ -2,13 +2,13 @@
  * Created by ranwahle on 12/27/14.
  */
 
-(function(andular)
+(function(angular)
 {
     var app = angular.module('ToDoListApp',['ngResource', 'ui.router']);
 
-    app.config(function( $stateProvider)
+    app.config(['$stateProvider',function($foo)
     {
-       $stateProvider.state('AllTasks',
+       $foo.state('AllTasks',
            {
                url: '/ViewAllTasks',
                templateUrl: 'Partials/AllTasks.Html',
@@ -38,6 +38,6 @@
                controller: 'editTaskController',
                controllerAs : 'controller'
            });
-    });
+    }]);
 
 }(window.angular))

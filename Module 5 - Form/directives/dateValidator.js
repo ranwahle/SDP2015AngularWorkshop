@@ -6,7 +6,7 @@
 {
     var directive = function()
     {
-        return {
+        return  {
             require: 'ngModel',
             link: function($scope, iElm, iAttrs, controller) {
                 //  controller.$parsers.push(function(viewValue){

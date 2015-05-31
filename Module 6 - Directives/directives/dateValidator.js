@@ -7,7 +7,9 @@
         return {
             require: 'ngModel',
             link: function ($scope, iElm, iAttrs, controller) {
-                controller.$validators.formDateValidator = function (modelValue, viewValue) {
+                controller.$validators.formDateValidator =
+                    function (modelValue, viewValue) {
+
                     return moment(viewValue).isValid();
                 };
 

@@ -4,12 +4,8 @@
 (function (angular) {
 
     var service = function ($http, $resource, $log) {
-        var tasks = [{
-                title: 'Prepare for presentation',
-                description: 'Prepare for angularJs presentation',
-                dueDate: new Date(2014, 11, 28)
-            }],
-            loadTasks = function () {
+
+          var  loadTasks = function () {
                 var promise = $http.
                     get('/SDPToDo-Server/api/Todo');
                 return promise;

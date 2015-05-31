@@ -15,11 +15,12 @@
 
         return tasks.filter(function(task)
         {
-            return task.Title.indexOf(title) >= 0;
+            return task.Title && task.Title.indexOf(title) >= 0;
         }) ;
       };
     };
 
-    angular.module('ToDoListApp').filter('searchInTitle', [filter]);
+    angular.module('ToDoListApp').filter
+    ('searchInTitle', [filter]);
 
 }(window.angular));
