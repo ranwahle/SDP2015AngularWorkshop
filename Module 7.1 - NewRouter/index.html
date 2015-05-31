@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/formClassStyles.css" type="text/css"/>
+    <link rel="stylesheet" href="../bower_components/jqueryui/themes/base/all.css"/>
+
+    <title>Navigation</title>
+</head>
+<body data-ng-app="ToDoListApp" ng-strict-di ng-controller="routeController">
+<h1>
+    My Todo-s
+</h1>
+<span data-ng-controller="navigationController">
+    <span data-ng-show="$root.currentStateName === 'AllTasks'">
+        All Tasks
+    </span>
+<a ng-link="viewAllTasks"
+   data-ng-show="$root.currentStateName !== 'AllTasks'">View all</a>
+<a ng-link="completed"
+   data-ng-show="$root.currentStateName !== 'Completed'">View completed</a>
+<a ng-link="ViewInComplete"
+   data-ng-show="$root.currentStateName !== 'InComplete'">View incomplete</a>
+<a ng-link="NewTask"
+   data-ng-show="$root.currentStateName !== 'NewTask'">
+    New task</a>
+    </span>
+
+<div class="page-host">
+    <ng-viewport></ng-viewport>
+    <!--<ng-outlet></ng-outlet>-->
+</div>
+
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../bower_components/jqueryui/jquery-ui.js"></script>
+<script type="text/javascript" src="../bower_components/moment/moment.js"></script>
+<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
+<script type="text/javascript" src="../bower_components/angular-new-router/dist/router.es5.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="services/todoService.js"></script>
+<script type="text/javascript" src="controllers/navigationController.js"></script>
+<script type="text/javascript" src="components/view-all-tasks/myTodosController.js"></script>
+<script type="text/javascript" src="components/-new-task/newTaskController.js"></script>
+<script type="text/javascript" src="components/-edit-task/editTaskController.js"></script>
+
+<script type="text/javascript" src="controllers/myTodosController.js"></script>
+<!--<script type="text/javascript" src="controllers/editTaskController.js"></script>-->
+<script type="text/javascript" src="filters/customBooleanFilter.js"></script>
+<script type="text/javascript" src="filters/completedTasks.js"></script>
+<script type="text/javascript" src="directives/dateValidator.js"></script>
+<script type="text/javascript" src="directives/datePicker.js"></script>
+<!--<ui-view></ui-view>-->
+</body>
+</html>

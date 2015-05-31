@@ -1,0 +1,7 @@
+.ng-touched
+{
+    background-color: antiquewhite;
+}
+input.ng-invalid-required.ng-dirty {
+background-color: deeppink;
+}

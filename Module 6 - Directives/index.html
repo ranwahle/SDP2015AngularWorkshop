@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/formClassStyles.css" type="text/css"/>
+    <link rel="stylesheet" href="../bower_components/jqueryui/themes/base/all.css"/>
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../bower_components/jqueryui/jquery-ui.js"></script>
+    <script type="text/javascript" src="../bower_components/moment/moment.js"></script>
+    <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="services/todoService.js"></script>
+    <script type="text/javascript" src="controllers/myTodosController.js"></script>
+    <script type="text/javascript" src="filters/customBooleanFilter.js"></script>
+    <script type="text/javascript" src="directives/dateValidator.js"></script>
+    <script type="text/javascript" src="directives/datePicker.js"></script>
+    <title>Directives</title>
+</head>
+<body data-ng-app="ToDoListApp">
+<h1>
+    My Todo-s
+</h1>
+<div data-ng-controller="myToDosController as controller">
+    <input type="text" placeholder="seach by word" data-ng-model="controller.searchBy"/>
+    <table>
+        <thead>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Due date</th>
+        <th>Completed</th>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="todo in controller.myTodos | filter:controller.searchBy">
+            <td data-ng-bind="todo.Title"></td>
+            <td data-ng-bind="todo.Description"></td>
+            <td data-ng-bind="todo.DueDate | date:'dd/MM/yyyy'"></td>
+            <td data-ng-bind="todo.IsCompleted | booleanFilter"></td>
+        </tr>
+        </tr>
+        </tbody>
+    </table>
+    <label for="numGetById">GetBy Id</label>
+    <input type="number" id="numGetById" data-ng-model="controller.taskId">
+    <button data-ng-click="controller.getTaskById()">Get</button>
+    <br/>
+<form name="newTaskForm" novalidate>
+    <fieldset>
+        <legend>New task</legend>
+
+        <input type="text" required="" placeholder="Task title" data-ng-model="controller.newTask.Title"/>
+        <br/>
+        <input type="text" required="" placeholder="Task description" data-ng-model="controller.newTask.Description"/>
+        <br/>
+        <!--<input id="dueDate" name="dueDate" type="datetime" required="" form-date-validator="" placeholder="Due date" data-ng-model="controller.newTask.DueDate"/>-->
+        <!--<span data-ng-show="newTaskForm.dueDate.$invalid && newTaskForm.dueDate.$dirty">-->
+            <!--Please insert date in the format of 'dd/MM/yyyy'-->
+        <!--</span>-->
+
+        <date-picker
+                data-ng-model="controller.newTask.DueDate">
+
+                </date-picker>
+        <br/>
+        <label for="chkCompleted">Completed:</label>
+
+        <input type="checkbox" data-ng-model="controller.newTask.IsCompleted" id="chkCompleted"/>
+        <button data-ng-click="controller.addTask()" data-ng-disabled="newTaskForm.$invalid">Add</button>
+    </fieldset>
+</form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../bower_components/moment/moment.js"></script>
+    <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="services/todoService.js"></script>
+    <script type="text/javascript" src="controllers/myTodosController.js"></script>
+    <title>Services</title>
+</head>
+<body data-ng-app="ToDoListApp">
+<h1>
+    {{name}}'s Todo-s
+</h1>
+<input type="text" placeholder="Your name here..." data-ng-model="name" />
+<div data-ng-controller="myToDosController as controller">
+    <table>
+        <thead>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Due date</th>
+        <th>Completed</th>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="todo in controller.myTodos">
+            <td data-ng-bind="todo.title"></td>
+            <td data-ng-bind="todo.description"></td>
+            <td data-ng-bind="todo.dueDate"></td>
+            <td data-ng-bind="todo.isCompleted"></td>
+        </tr>
+        </tr>
+        </tbody>
+    </table>
+
+    <fieldset>
+        <legend>New task</legend>
+        <input type="text" placeholder="Task title" data-ng-model="controller.newTask.title"/>
+        <br/>
+        <input type="text" placeholder="Task description" data-ng-model="controller.newTask.description"/>
+        <br/>
+        <input type="datetime" placeholder="Due date" data-ng-model="controller.newTask.dueDate"/>
+        <br/>
+        <label for="chkCompleted">Completed:</label>
+
+        <input type="checkbox" data-ng-model="newTask.isCompleted" id="chkCompleted"/>
+        <button data-ng-click="controller.addTask()">Add</button>
+    </fieldset>
+</div>
+</body>
+</html>

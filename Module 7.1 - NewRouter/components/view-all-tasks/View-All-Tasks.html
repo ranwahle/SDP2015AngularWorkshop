@@ -1,0 +1,27 @@
+<div>
+    <input type="text" placeholder="search by word" data-ng-model="viewAllTasks.searchBy"/>
+    <table>
+        <thead>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Due date</th>
+        <th>Completed</th>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="todo in viewAllTasks.myTodos | filter:viewAllTasks.searchBy">
+            <td>
+                <a data-ng-bind="todo.Title" ng-link="EditTask({id: todo.Id})"></a>
+            </td>
+            <td data-ng-bind="todo.Description"></td>
+            <td data-ng-bind="todo.DueDate | date:'dd/MM/yyyy'"></td>
+            <td data-ng-bind="todo.IsCompleted | booleanFilter"></td>
+        </tr>
+        </tr>
+        </tbody>
+    </table>
+    <div data-ng-if="!viewAllTasks.myTodos || viewAllTasks.myTodos.length === 0">
+        No tasks
+    </div>
+
+
+</div>
