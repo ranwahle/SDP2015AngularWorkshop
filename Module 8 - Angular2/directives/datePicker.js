@@ -10,7 +10,7 @@
          template: '<input type="text"/>',
          require: 'ngModel',
          replace: true,
-         link: function(scope, element, attrs, controller)
+         link: function(scope, element)
          {
              //var innerInput =
            element.datepicker();

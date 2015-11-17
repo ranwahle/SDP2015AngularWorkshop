@@ -6,7 +6,7 @@
  */
 (function(angular)
 {
-    g
+
     var controller = function(todoService)
     {
         this.myTodos = todoService.loadTasks();

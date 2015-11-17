@@ -1,0 +1,22 @@
+
+<form name="newTaskForm" novalidate>
+    <fieldset>
+        <legend>New task</legend>
+
+        <input type="text" required="" placeholder="Task title" data-ng-model="EditTask.task.Title"/>
+        <br/>
+        <input type="text" required="" placeholder="Task description" data-ng-model="EditTask.task.Description"/>
+        <br/>
+        <!--<input id="dueDate" name="dueDate" type="datetime" required="" form-date-validator="" placeholder="Due date" data-ng-model="controller.newTask.DueDate"/>-->
+        <!--<span data-ng-show="newTaskForm.dueDate.$invalid && newTaskForm.dueDate.$dirty">-->
+        <!--Please insert date in the format of 'dd/MM/yyyy'-->
+        <!--</span>-->
+
+        <date-picker data-ng-model="EditTask.task.DueDate"></date-picker>
+        <br/>
+        <label for="chkCompleted">Completed:</label>
+
+        <input type="checkbox" data-ng-model="EditTask.task.IsCompleted" id="chkCompleted"/>
+        <button data-ng-click="EditTask.saveTask()" data-ng-disabled="newTaskForm.$invalid">Save</button>
+    </fieldset>
+</form>

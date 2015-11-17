@@ -3,8 +3,9 @@
  */
 
 (function (angular) {
-    var controller = function (todoService) {
-
+    var  _$state,
+        controller = function (todoService, $state) {
+            _$state = $state;
         var self = this;
       //  this.myTodos = todoService.loadTasks();
         this.todoService = todoService;
@@ -26,6 +27,7 @@
             this.todoService.addTask(this.newTask).success(function()
             {
                 self.loadTasks();
+                _$state.go('AllTasks');
             });
             this.newTask = {};
         };
@@ -48,5 +50,5 @@
         };
     }
 
-    angular.module('ToDoListApp').controller('myToDosController', ['todoService', controller]);
+    angular.module('ToDoListApp').controller('myToDosController', ['todoService','$state', controller]);
 }(window.angular));

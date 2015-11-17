@@ -12,4 +12,9 @@
     var app =
         angular.module('ToDoListApp',[]);
 
+    angular.element(document).ready(function()
+    {
+       angular.bootstrap(document.body, ['ToDoListApp']);
+    });
+
 }(window.angular));

@@ -33,7 +33,7 @@
                controller: 'myToDosController',
                controllerAs: 'controller'
            }).state('EditTask',{
-               url: '/EditTask/:id',
+               url: '/EditTask/:id/:title',
                templateUrl: 'Partials/EditTask.html',
                controller: 'editTaskController',
                controllerAs : 'controller'

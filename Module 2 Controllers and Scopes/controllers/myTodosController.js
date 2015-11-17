@@ -25,8 +25,7 @@
             $scope.newTask = {};
         };
 
-    }
-    angular.module('ToDoListApp').
-            ('myToDosController',
+    };
+    angular.module('ToDoListApp').controller('myToDosController',
         ['$scope', controller]);
 }(window.angular));

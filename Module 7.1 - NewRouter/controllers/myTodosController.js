@@ -57,6 +57,6 @@
 
 
     angular.module('ToDoListApp.completed', ['ToDoListApp.common']);
-    angular.module('ToDoListApp.ViewInComplete', ['ToDoListApp.common']);
-  //  'ViewInComplete'
+    angular.module('ToDoListApp.ViewIncomplete', ['ToDoListApp.common']);
+
 }(window.angular));

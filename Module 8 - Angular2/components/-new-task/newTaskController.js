@@ -15,19 +15,21 @@
             self.task = todoService.getTaskById(taskId);
         };
 
-        this.saveTask = function()
+        this.addTask = function()
         {
-          todoService.saveTask(self.task).success(function()
+          todoService.addTask(self.newTask).success(function()
           {
               $location.path('/ViewAllTasks');
           });
         };
 
-        getTaskById();
+       // getTaskById();
 
     };
 
-    angular.module('ToDoListApp.EditTask', []).controller('editTaskController',
+
+
+    angular.module('ToDoListApp.NewTask', []).controller('NewTaskController',
         ['todoService','$routeParams','$location', controller]);
 
 }(window.angular));

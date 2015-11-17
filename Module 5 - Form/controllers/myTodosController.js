@@ -3,7 +3,7 @@
  */
 
 (function (angular) {
-    var controller = function (todoService) {
+    var controller = function (todoService,$scope) {
 
         var self = this;
       //  this.myTodos = todoService.loadTasks();
@@ -11,7 +11,13 @@
 
         this.loadTasks();
 
-
+$scope.$watch(function()
+{
+    return self.todoService.tasks;
+}, function(data)
+{
+    self.myTodos = data;
+});
 
 
 
@@ -35,7 +41,7 @@
             var self = this;
             this.todoService.loadTasks().success(function(response)
             {
-                self.myTodos = response;
+               // self.myTodos = response;
             });
         };
 
@@ -48,5 +54,6 @@
         };
     }
 
-    angular.module('ToDoListApp').controller('myToDosController', ['todoService', controller]);
+    angular.module('ToDoListApp').
+        controller('myToDosController', ['todoService','$scope', controller]);
 }(window.angular));

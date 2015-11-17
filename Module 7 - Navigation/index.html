@@ -30,11 +30,14 @@
         All Tasks
     </span>
 <a ui-sref="AllTasks"
-   data-ng-show="$root.currentStateName !== 'AllTasks'">View all</a>
+   data-ng-if="$root.currentStateName !== 'AllTasks'">View all</a>
 <a ui-sref="Completed"
    data-ng-show="$root.currentStateName !== 'Completed'">View completed</a>
+     <span data-ng-show="$root.currentStateName === 'Completed'">
+       View completed
+    </span>
 <a ui-sref="InComplete"
-   data-ng-show="$root.currentStateName !== 'InComplete'">View incomplete</a>
+   data-ng-class="{'notSelected': $root.currentStateName !== 'InComplete'}">View incomplete</a>
 <a ui-sref="NewTask"
    data-ng-show="$root.currentStateName !== 'NewTask'">
 New task</a>

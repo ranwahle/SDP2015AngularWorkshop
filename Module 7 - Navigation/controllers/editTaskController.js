@@ -19,6 +19,7 @@
         {
           todoService.saveTask(self.task).success(function()
           {
+
               $state.go('AllTasks');
           });
         };

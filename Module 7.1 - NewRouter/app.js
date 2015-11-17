@@ -4,16 +4,16 @@
 
 (function(andular)
 {
-    var app = angular.module('ToDoListApp',['ngResource', 'ngNewRouter',
-    'ToDoListApp.viewAllTasks','ToDoListApp.completed','ToDoListApp.ViewInComplete',
-        'ToDoListApp.ViewInComplete','ToDoListApp.EditTask','ToDoListApp.NewTask']);
+    var app = angular.module('ToDoListApp',['ngResource', 'ngNewRouter','ToDoListApp.Services',
+    'ToDoListApp.ViewAllTasks','ToDoListApp.completed',
+        'ToDoListApp.viewIncomplete','ToDoListApp.EditTask','ToDoListApp.NewTask']);
 
     var routeController = function($router){
       $router.config([
           { path: '/' , redirectTo: '/ViewAllTasks'},
           {  path: '/ViewAllTasks' , component: 'viewAllTasks'},
           {  path: '/completed' , component: 'completed'},
-          {  path: '/ViewInComplete' , component: 'ViewInComplete'},
+          {  path: '/viewIncomplete' , component: 'viewIncomplete'},
           {path: '/NewTask' , component:'NewTask'},
           {path: '/EditTask/:id', component: 'EditTask'}
 
@@ -57,4 +57,4 @@
     //       });
     //});
 
-}(window.angular))
+}(window.angular));

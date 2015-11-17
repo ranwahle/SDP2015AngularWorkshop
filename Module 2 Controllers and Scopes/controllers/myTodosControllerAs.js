@@ -16,7 +16,7 @@
 
 
 
-    }
+    };
 
     if (!controller.prototype.addTask)
     {

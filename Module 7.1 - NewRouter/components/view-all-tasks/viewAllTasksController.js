@@ -3,7 +3,7 @@
  */
 
 (function (angular) {
-    var controller = function (todoService, $scope) {
+    var controller = function (todoService) {
 
         var self = this;
       //  this.myTodos = todoService.loadTasks();
@@ -35,7 +35,7 @@
             var self = this;
             this.todoService.loadTasks().success(function(response)
             {
-               // self.myTodos = response;
+                self.myTodos = response;
             });
         };
 
@@ -51,11 +51,9 @@
     
 
 
-    angular.module('ToDoListApp.viewAllTasks', [])
-        .controller('ViewAllTasksController', ['todoService','$scope',controller]);
+    angular.module('ToDoListApp.ViewAllTasks', ['ToDoListApp.Services'])
+        .controller('ViewAllTasksController', ['todoService',controller]);
 
 
-    //angular.module('ToDoListApp.completed', ['ToDoListApp.common']);
-    //angular.module('ToDoListApp.ViewInComplete', ['ToDoListApp.common']);
-  //  'ViewInComplete'
+
 }(window.angular));

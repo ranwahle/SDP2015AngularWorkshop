@@ -4,6 +4,6 @@
 
 (function(andular)
 {
-    var app = angular.module('ToDoListApp',['ngResource1']);
+    var app = angular.module('ToDoListApp',['ngResource']);
 
 }(window.angular))

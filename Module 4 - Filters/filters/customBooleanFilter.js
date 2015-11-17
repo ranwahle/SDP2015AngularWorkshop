@@ -6,9 +6,9 @@
 {
     var filter = function()
     {
-      return function(argument)
+      return function(source)
       {
-        return argument ? 'Done' : 'Not Yet'
+        return source ? 'Done' : 'Not Yet'
       };
     };
 

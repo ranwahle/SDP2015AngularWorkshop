@@ -1,0 +1,16 @@
+<todo-navigation>
+<span data-ng-controller="navigationController">
+    <span data-ng-show="$root.currentStateName === 'AllTasks'">
+        All Tasks
+    </span>
+<a ng-link="AllTasks"
+   data-ng-show="$root.currentStateName !== 'AllTasks'">View all</a>
+<a ng-link="Completed"
+   data-ng-show="$root.currentStateName !== 'Completed'">View completed</a>
+<a ng-link="InComplete"
+   data-ng-show="$root.currentStateName !== 'InComplete'">View incomplete</a>
+<a ng-link="NewTask"
+   data-ng-show="$root.currentStateName !== 'NewTask'">
+    New task</a>
+    </span>
+</todo-navigation>

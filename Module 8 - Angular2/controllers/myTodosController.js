@@ -48,5 +48,15 @@
         };
     }
 
-    angular.module('ToDoListApp').controller('myToDosController', ['todoService', controller]);
+
+
+    angular.module('ToDoListApp.common', []).
+        controller('myToDosController', ['todoService', controller]);
+
+
+
+
+    angular.module('ToDoListApp.completed', ['ToDoListApp.common']);
+    angular.module('ToDoListApp.ViewIncomplete', ['ToDoListApp.common']);
+
 }(window.angular));

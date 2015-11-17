@@ -18,9 +18,9 @@
 <a ng-link="viewAllTasks"
    data-ng-show="$root.currentStateName !== 'AllTasks'">View all</a>
 <a ng-link="completed"
-   data-ng-show="$root.currentStateName !== 'Completed'">View completed</a>
-<a ng-link="ViewInComplete"
-   data-ng-show="$root.currentStateName !== 'InComplete'">View incomplete</a>
+   data-ng-show="$root.currentStateName !== 'completed'">View completed</a>
+<a ng-link="viewIncomplete"
+   data-ng-show="$root.currentStateName !== 'inComplete'">View incomplete</a>
 <a ng-link="NewTask"
    data-ng-show="$root.currentStateName !== 'NewTask'">
     New task</a>
@@ -37,19 +37,25 @@
 <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
 <script type="text/javascript" src="../bower_components/angular-new-router/dist/router.es5.js"></script>
-<script type="text/javascript" src="app.js"></script>
 <script type="text/javascript" src="services/todoService.js"></script>
-<script type="text/javascript" src="controllers/navigationController.js"></script>
-<script type="text/javascript" src="components/view-all-tasks/myTodosController.js"></script>
+
+<script type="text/javascript" src="components/view-all-tasks/viewAllTasksController.js"></script>
 <script type="text/javascript" src="components/-new-task/newTaskController.js"></script>
 <script type="text/javascript" src="components/-edit-task/editTaskController.js"></script>
-
-<script type="text/javascript" src="controllers/myTodosController.js"></script>
+<script type="text/javascript" src="components/completed/completedController.js"></script>
+<script type="text/javascript" src="components/view-incomplete/viewIncompleteController.js"></script>
+<!--<script type="text/javascript" src="controllers/"></script>-->
 <!--<script type="text/javascript" src="controllers/editTaskController.js"></script>-->
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="controllers/navigationController.js"></script>
+
 <script type="text/javascript" src="filters/customBooleanFilter.js"></script>
 <script type="text/javascript" src="filters/completedTasks.js"></script>
 <script type="text/javascript" src="directives/dateValidator.js"></script>
 <script type="text/javascript" src="directives/datePicker.js"></script>
+
+
+
 <!--<ui-view></ui-view>-->
 </body>
 </html>

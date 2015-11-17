@@ -1,5 +1,5 @@
 <div>
-    <input type="text" placeholder="search by word" data-ng-model="controller.searchBy"/>
+    <input type="text" placeholder="search by word" data-ng-model="viewIncomplete.searchBy"/>
     <table>
         <thead>
         <th>Title</th>
@@ -8,9 +8,9 @@
         <th>Completed</th>
         </thead>
         <tbody>
-        <tr data-ng-repeat="todo in controller.myTodos | filter:controller.searchBy">
+        <tr data-ng-repeat="todo in viewIncomplete.myTodos | completion:false  | filter:viewIncomplete.searchBy">
             <td>
-                <a data-ng-bind="todo.Title" ui-sref="EditTask({id: todo.Id, title:todo.Title1})"></a>
+                <a data-ng-bind="todo.Title" data-ng-link="EditTask({id: todo.Id})"></a>
             </td>
             <td data-ng-bind="todo.Description"></td>
             <td data-ng-bind="todo.DueDate | date:'dd/MM/yyyy'"></td>
@@ -19,6 +19,9 @@
         </tr>
         </tbody>
     </table>
+    <div data-ng-if="!viewIncomplete.myTodos || viewAllTasks.myTodos.length === 0">
+        No tasks
+    </div>
 
 
 </div>

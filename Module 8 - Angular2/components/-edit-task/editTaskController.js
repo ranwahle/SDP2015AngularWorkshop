@@ -7,6 +7,7 @@
     var controller = function(todoService,$routeParams,
                               $location)
     {
+
        var taskId = $routeParams.id,
            self =this,
 
@@ -27,7 +28,7 @@
 
     };
 
-    angular.module('ToDoListApp.EditTask', []).controller('editTaskController',
+    angular.module('ToDoListApp.EditTask', []).controller('EditTaskController',
         ['todoService','$routeParams','$location', controller]);
 
 }(window.angular));

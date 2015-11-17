@@ -1,4 +1,4 @@
-<div>
+<div data-ng-controller="myToDosController as controller">
     <input type="text" placeholder="search by word" data-ng-model="controller.searchBy"/>
     <table>
         <thead>
@@ -8,9 +8,9 @@
         <th>Completed</th>
         </thead>
         <tbody>
-        <tr data-ng-repeat="todo in controller.myTodos | filter:controller.searchBy">
+        <tr data-ng-repeat="todo in controller.myTodos | completion:false |  filter:controller.searchBy">
             <td>
-                <a data-ng-bind="todo.Title" ui-sref="EditTask({id: todo.Id, title:todo.Title1})"></a>
+                <a data-ng-bind="todo.Title" ui-sref="EditTask({id: todo.Id})"></a>
             </td>
             <td data-ng-bind="todo.Description"></td>
             <td data-ng-bind="todo.DueDate | date:'dd/MM/yyyy'"></td>
